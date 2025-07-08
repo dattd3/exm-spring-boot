@@ -6,6 +6,7 @@ import com.example.exm.dto.response.OrderResponse;
 import com.example.exm.entity.OrderStatus;
 import com.example.exm.service.OrderService;
 import com.example.exm.util.Constants;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -24,6 +25,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/orders")
 @RequiredArgsConstructor
+@Tag(name = "Order Management", description = "APIs for managing orders")
 public class OrderRestController {
 
     private final OrderService orderService;

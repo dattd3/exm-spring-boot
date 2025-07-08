@@ -200,3 +200,12 @@ exm/
 
 ### 11. **Util Package**: `util/`
 - **Utility classes** - Helper methods and constants
+
+
+## BUILD .jar file
+
+```bash
+
+mvn clean install -DskipTests
+
+```

@@ -1,6 +1,7 @@
 package com.example.exm.entity;
 
 import com.example.exm.entity.base.AuditableEntity;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -17,15 +18,18 @@ import java.util.List;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @ToString(exclude = "orderItems")
+@Schema(description = "Product Information")
 public class Product extends AuditableEntity {
 
     @Column(nullable = false, length = 255)
+    @Schema(description = "Name of the product", example = "iPhone 13")
     private String name;
 
     @Column(columnDefinition = "TEXT")
     private String description;
 
     @Column(nullable = false, precision = 10, scale = 2)
+    @Schema(description = "Price of the product", example = "999.99")
     private BigDecimal price;
 
     @Column(nullable = false)

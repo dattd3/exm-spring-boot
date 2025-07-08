@@ -7,6 +7,7 @@ import com.example.exm.dto.response.UserResponse;
 import com.example.exm.entity.UserStatus;
 import com.example.exm.service.UserService;
 import com.example.exm.util.Constants;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -22,6 +23,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/users")
 @RequiredArgsConstructor
+@Tag(name = "User Management", description = "APIs for managing users")
 public class UserRestController {
 
   private final UserService userService;

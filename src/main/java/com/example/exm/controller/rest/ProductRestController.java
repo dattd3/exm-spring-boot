@@ -3,9 +3,15 @@ package com.example.exm.controller.rest;
 import com.example.exm.dto.request.CreateProductRequest;
 import com.example.exm.dto.response.ApiResponse;
 import com.example.exm.dto.response.ProductResponse;
+import com.example.exm.entity.Product;
 import com.example.exm.entity.ProductStatus;
 import com.example.exm.service.ProductService;
 import com.example.exm.util.Constants;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.ArraySchema;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -22,6 +28,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/products")
 @RequiredArgsConstructor
+@Tag(name = "Product Management", description = "APIs for managing products")
 public class ProductRestController {
 
     private final ProductService productService;
@@ -47,6 +54,21 @@ public class ProductRestController {
         return ResponseEntity.ok(ApiResponse.success(productResponse));
     }
 
+    @Operation(
+            summary = "Get all products",
+            description = "Returns a list of all available products",
+            responses = {
+                    @io.swagger.v3.oas.annotations.responses.ApiResponse(
+                            responseCode = "200",
+                            description = "Successfully retrieved products",
+                            content = @Content(
+                                    array = @ArraySchema(
+                                            schema = @Schema(implementation = Product.class)
+                                    )
+                            )
+                    )
+            }
+    )
     @GetMapping
     public ResponseEntity<ApiResponse<Page<ProductResponse>>> getAllProducts(
             @RequestParam(defaultValue = "0") int page,

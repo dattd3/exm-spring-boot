@@ -1,4 +1,4 @@
-package com.example.exm.service.impl;
+package com.example.exm.service;
 
 import com.example.exm.dto.mapper.UserMapper;
 import com.example.exm.dto.request.CreateUserRequest;
@@ -9,6 +9,7 @@ import com.example.exm.entity.UserStatus;
 import com.example.exm.exception.BusinessException;
 import com.example.exm.exception.ResourceNotFoundException;
 import com.example.exm.repository.UserRepository;
+import com.example.exm.service.impl.UserServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

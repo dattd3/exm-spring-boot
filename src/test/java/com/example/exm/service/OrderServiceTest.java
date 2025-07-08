@@ -1,4 +1,4 @@
-package com.example.exm.service.impl;
+package com.example.exm.service;
 
 import com.example.exm.dto.mapper.OrderMapper;
 import com.example.exm.dto.request.CreateOrderRequest;
@@ -10,6 +10,7 @@ import com.example.exm.repository.OrderRepository;
 import com.example.exm.service.OrderItemService;
 import com.example.exm.service.ProductService;
 import com.example.exm.service.UserService;
+import com.example.exm.service.impl.OrderServiceImpl;
 import com.example.exm.util.OrderNumberGenerator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
